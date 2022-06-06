@@ -11,9 +11,7 @@ function Dashboard() {
   const dispatch = useDispatch()
 
   const { user } = useSelector((state) => state.auth)
-  const { goals, isLoading, isError, message } = useSelector(
-    (state) => state.goals
-  )
+  const { goals, isLoading, isError, message } = useSelector((state) => state.goals)
 
   useEffect(() => {
     if (isError) {
@@ -24,7 +22,7 @@ function Dashboard() {
       navigate('/login')
     }
 
-    dispatch(getGoals())
+    //dispatch(getGoals())
     
 
     return () => {

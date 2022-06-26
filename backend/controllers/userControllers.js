@@ -40,7 +40,7 @@ exports.signup = asyncHandler ( async (req,res) => {
 exports.login = asyncHandler ( async (req,res) => {
     const {email, password} = req.body
     const user = await User.findOne({email})
-    if(email && await bcrypt.compare(password, user.password)){
+    if(user && (await bcrypt.compare(password, user.password))){
         res.status(200).json({
             _id : user._id,
             name : user.name,
